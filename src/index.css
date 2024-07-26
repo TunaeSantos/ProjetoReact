@@ -80,9 +80,12 @@ caption h2 {
 
 span {
   margin-right: 100px;
+
 }
 
 .result {
-  margin-left: 50px;
+  margin-left: 5px;
   font-size: 40px;
+  margin: 0 auto;
+  display: block;
 }

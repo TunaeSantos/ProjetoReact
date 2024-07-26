@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import './App.css'
+import './App.css' 
+import InputMask from 'react-input-mask';
 
 function App() {
 
@@ -18,10 +19,19 @@ function App() {
       if (pesoFloat > 0 && alturaFloat > 0) {
         const imc = pesoFloat / (alturaFloat * alturaFloat);
         setResultado(imc.toFixed(2));
-      } else {
-        setResultado ('Preencha os campos corretamente');
+      }
+      else {
+        setResultado ('Campos incorretos');
       }
   }
+
+  const limparCampos = () => {
+    setPeso('')
+    setAltura('')
+    setResultado('')
+  }
+
+  
   
   return (
     <>
@@ -35,13 +45,13 @@ function App() {
       </div>
       <form>
         <label for="number">Altura : (ex: 1,59)</label>
-        <input id="number" type="number" value={altura} onChange={(e) => setAltura(e.target.value)}/>
+        <input type='number' id="number" value={altura} onChange={(e) => setAltura(e.target.value)}/>
 
         <label for="Weight">Peso : (ex: 67.2)</label>
-        <input id="Weight" type="number" onChange={(e) => setPeso(e.target.value)} value={peso}/>
+        <input type='number'  id="Weight"  onChange={(e) => setPeso(e.target.value)} value={peso}/>
         
         <button class="btn-enviar" type="button" onClick={calcularIMC}>Calcular</button>
-        <button class="btn-reset" type="reset">Limpar</button>
+        <button class="btn-reset" type="reset" onClick={limparCampos}>Limpar</button>
       </form>
       <table>
         <caption>
